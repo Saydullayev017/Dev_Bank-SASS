@@ -1,27 +1,83 @@
 .header {
+  // Стили для навигационной панели
+  nav {
+    padding: 1.0625rem 1.5rem; // Установка отступов
+    background-color: #f4f4f4; // Задание цвета фона
+  }
 
-    nav {
-        padding: 24px;
+  &__logo {
+    img {
+      width: 3.8125rem; // Установка ширины
+      height: 2.375rem; // Установка высоты
+      border-radius: 1rem; // Задание скругления углов
+    }
+  }
+
+  &__menu {
+    // Стили для мобильного меню
+    width: 30px; // Установка ширины
+    height: 25px; // Установка высоты
+    cursor: pointer; // Изменение указателя при наведении
+    background: none; // Установка фона
+    border: none; // Удаление границы
+
+    > span {
+      // Стили для дочернего элемента span
+      display: block; // Установка блочного отображения
+      width: 100%; // Установка ширины
+      height: 3px; // Установка высоты
+      background-color: #333; // Задание цвета фона
+      margin-bottom: 3px; // Установка отступа снизу
+    }
+  }
+
+  &__links {
+    // Стили для ссылок в навигационном меню
+    a {
+      position: relative; // Установка позиционирования
+      font-size: $font-sm; // Установка размера шрифта (переменная)
+      color: $grayishBlue; // Задание цвета текста (переменная)
+      transition: color 300ms ease-in-out; // Установка анимации перехода цвета
+
+      &:not(:last-child) {
+        margin-right: 32px; // Установка отступа справа для всех, кроме последнего элемента
+      }
+
+      &::before {
+        // Псевдоэлемент для создания градиента под текстом
+        content: "";
+        display: block;
+        position: absolute;
+        height: 5px;
+        left: 0;
+        right: 0;
+        bottom: -30px;
+        background: linear-gradient(
+          to right,
+          $gray,
+          $brightCyan
+        ); // Задание градиента (переменные)
+        opacity: 0; // Установка непрозрачности
+        transition: opacity 300ms ease-in-out; // Установка анимации перехода непрозрачности
+      }
+
+      &:hover {
+        color: $darkBlue; // Изменение цвета текста при наведении
+
+        &::before {
+          opacity: 1; // Изменение непрозрачности градиента при наведении
+        }
+      }
     }
 
-    &__logo {
+    &__cta {
+      font-size: $font-sm; // Установка размера шрифта для "вызова к действию" (переменная)
+      color: $white; // Задание цвета текста (переменная)
+      transition: opacity 300ms ease-in-out; // Установка анимации перехода непрозрачности
 
-        img {
-
-        }
-
+      &:hover {
+        opacity: 0.75; // Изменение непрозрачности при наведении
+      }
     }
-
-    &__menu { //Mobile menu
-
-        >span {
-            display: block;
-            width: 26px;
-            background-color: $darkBlue;
-        }
-
-        &:not(:last-child) {
-            margin-bottom: 3px;
-        }
-    }
+  }
 }

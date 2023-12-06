@@ -1,32 +1,80 @@
 html {
-    font-size: 100%;
-    box-sizing: border-box;
+  // Установка базового размера шрифта и модели бокса для всего документа
+  font-size: 100%;
+  box-sizing: border-box;
 }
 
-*, *::before, *::after {
-    box-sizing: inherit;
+*,
+*::before,
+*::after {
+  // Наследование модели бокса у всех элементов
+  box-sizing: inherit;
 }
 
 body {
-    margin: 0;
-    padding: 0;
-    font-family:  "Helvetica Neue", Helvetica, sans-serif;
-    line-height: 1.3;;
+  // Стили для тела документа
+  margin: 0; // Удаление внешних отступов
+  padding: 0; // Удаление внутренних отступов
+  font-family: "Public Sans", sans-serif; // Установка шрифта
+  font-size: $font-med; // Установка размера шрифта (переменная)
+  color: $grayishBlue; // Установка цвета текста (переменная)
+  line-height: 1.3; // Установка межстрочного интервала
+  font-weight: 300; // Установка насыщенности шрифта
 }
 
-// Flexbox
+a,
+a:visited,
+a:hover {
+  // Удаление подчеркивания у всех ссылок
+  text-decoration: none;
+}
+
 .flex {
-    display: flex;
+  // Основные стили для элементов с дисплеем flex
+  display: flex;
 
-    &-js-sb {
-        justify-content: space-between;
-    }
+  &-js-sb {
+    // Расстановка элементов с пространством между ними
+    justify-content: space-between;
+  }
 
-    &-js-c {
-        justify-content: center;
-    }
+  &-js-c {
+    // Расстановка элементов по центру
+    justify-content: center;
+  }
 
-    &-ai-c {
-        align-items: center;
-    }
+  &-ai-c {
+    // Выравнивание элементов по центру по вертикали
+    align-items: center;
+  }
+}
+
+button,
+.button {
+  // Стили для кнопок
+  padding: 0.675rem 2.1875rem; // Установка отступов
+  background: linear-gradient(
+    to right,
+    $gray,
+    $brightCyan
+  ); // Установка градиента фона (переменные)
+  border: 0; // Удаление границы
+  border-radius: 50px; // Создание скругленных углов
+  cursor: pointer; // Изменение указателя при наведении
+  color: $white; // Установка цвета текста (переменная)
+  font-weight: 400; // Установка насыщенности шрифта
+}
+
+.hide-for-mobile {
+  // Скрытие элемента для мобильных устройств
+  @include breakpoint-down(medium) {
+    display: none;
+  }
+}
+
+.hide-for-desktop {
+  // Скрытие элемента для настольных устройств
+  @include breakpoint-up(large) {
+    display: none;
+  }
 }

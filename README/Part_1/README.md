@@ -1,3 +1,63 @@
+### Part 1
+> Set up and Navigation Bar
+> Настройка и навигационная панель
+
+![Part 1](/README/Part_1/Part_1.gif)
+
+> Directory tree
+> Деревом каталогов
+
+![Alt Text](/README/Part_1/Part_1.png)
+
+
+> HTML
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/app/scss/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Roboto+Mono:wght@300;400&display=swap" rel="stylesheet">
+    <title>SJ</title>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <!-- Navbar -->
+        <nav class="flex flex-js-sb flex-ai-c">
+            <!-- Logo -->                   
+            <a href="/" class="header__logo">
+                <img src="images/logo.jpg" alt="dev" width="50">
+            </a>
+            <!-- Menu -->
+            <a href="#" class="header__menu hide-for-desktop">
+                <span></span>
+                <span></span>
+                <span></span>
+            </a>
+            <!-- Header links -->
+            <div class="header__links hide-for-mobile">
+                <a href="http://">Home</a>
+                <a href="http://">About</a>
+                <a href="http://">Contact</a>
+                <a href="http://">Blog</a>
+                <a href="http://">Careers</a>
+            </div>
+            <!-- button -->
+            <a href="#" class="button header__cta hide-for-mobile">Request Invite</a>
+        </nav>
+    </header>
+    <script src="/app/js/script.js"></script>
+</body>
+</html>
+
+```
+
+> compilation SCSS
+> Компилация SCSS
+
+```
 html {
   font-size: 100%;
   box-sizing: border-box;
@@ -118,4 +178,6 @@ button,
 }
 .header__links__cta:hover {
   opacity: 0.75;
-}/*# sourceMappingURL=style.css.map */
+}
+
+```
