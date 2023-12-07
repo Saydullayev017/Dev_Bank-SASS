@@ -1,18 +1,18 @@
-### Part 1
-* [HTML code](#html)
+### Part 2
+* [HTML code](#html-code)
 * [CSS code](#css)
-> Set up and Navigation Bar
-> Настройка и навигационная панель
+* [JavaScript code](#javascript)
+> Animated Humburger Menu
+> Анимировать ганбургер меню
 
-![Part 1](/README/Part_1/Part_1.gif)
+![Part 2](/README/Part_2/Part_2.gif)
 
 > Directory tree
 > Деревом каталогов
 
-![Alt Text](/README/Part_1/Part_1.png)
+![Alt Text](/README/Part_2/Part_2.png)
 
-
-### HTML
+### HTML code
 ```
 <!DOCTYPE html>
 <html lang="en">
@@ -26,6 +26,7 @@
 <body>
     <!-- Header -->
     <header class="header">
+        <div class="overlay"></div>
         <!-- Navbar -->
         <nav class="flex flex-js-sb flex-ai-c">
             <!-- Logo -->                   
@@ -33,7 +34,7 @@
                 <img src="images/logo.jpg" alt="dev" width="50">
             </a>
             <!-- Menu -->
-            <a href="#" class="header__menu hide-for-desktop">
+            <a id="btnHumburger" href="#" class="header__menu hide-for-desktop">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -53,13 +54,44 @@
     <script src="/app/js/script.js"></script>
 </body>
 </html>
-
 ```
 ### CSS
 > compilation SCSS
 > Компилация SCSS
 
 ```
+@keyframes fade-in {
+  from {
+    visibility: hidden;
+    opacity: 0;
+  }
+  to {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+.fade-in {
+  animation: fade-in 300ms ease-in-out forwards;
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+    visibility: visible;
+  }
+  99% {
+    visibility: visible;
+    opacity: 0;
+  }
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+.fade-out {
+  animation: fade-out 300ms ease-in-out forwards;
+}
+
 html {
   font-size: 100%;
   box-sizing: border-box;
@@ -123,6 +155,24 @@ button,
   }
 }
 
+.header.open .header__menu > span:first-child {
+  transform: rotate(45deg);
+}
+.header.open .header__menu > span:nth-child(2) {
+  opacity: 0;
+}
+.header.open .header__menu > span:last-child {
+  transform: rotate(-45deg);
+}
+.header .overlay {
+  opacity: 0;
+  position: fixed;
+  top: 3.75rem;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  background-image: linear-gradient(hsl(233, 26%, 24%), transparent);
+}
 .header nav {
   padding: 1.0625rem 1.5rem;
   background-color: #f4f4f4;
@@ -145,6 +195,11 @@ button,
   height: 3px;
   background-color: #333;
   margin-bottom: 3px;
+  transition: all 300ms ease-in-out;
+  transform-origin: 6px 1px;
+}
+.header__menu:not(:last-child) {
+  margin-bottom: 5px;
 }
 .header__links a {
   position: relative;
@@ -180,6 +235,28 @@ button,
 }
 .header__links__cta:hover {
   opacity: 0.75;
-}
+}/*# sourceMappingURL=style.css.map */
+```
 
+### JavaScript
+```
+const btnHumburger = document.querySelector('#btnHumburger');
+const header = document.querySelector('.header');
+const overlay = document.querySelector('.overlay');
+
+btnHumburger.addEventListener('click', function() {
+    console.log("Open Humburger")
+
+    // содержит ли кнопка класс "open". Если содержит, то удаляет этот класс.
+    if(header.classList.contains('open')) {
+        header.classList.remove('open');
+        overlay.classList.remove('fade-in');
+        overlay.classList.add('fade-out');
+    }
+    else {
+        header.classList.add('open');
+        overlay.classList.remove('fade-out');
+        overlay.classList.add('fade-in');
+    }
+})
 ```
