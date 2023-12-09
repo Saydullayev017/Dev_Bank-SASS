@@ -1,3 +1,72 @@
+### Part 2
+* [HTML code](#html-code)
+* [CSS code](#css)
+* [JavaScript code](#javascript)
+> Animated Humburger Menu
+> Анимировать ганбургер меню
+
+![Part 3](/README/Part_3/Part_3.gif)
+
+> Directory tree
+> Деревом каталогов
+
+![Alt Text](/README/Part_3/Part_3.png)
+
+### HTML code
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/app/scss/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Roboto+Mono:wght@300;400&display=swap" rel="stylesheet">
+    <title>SJ</title>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="overlay has-fade"></div>
+        <!-- Navbar -->
+        <nav class="container flex flex-js-sb flex-ai-c">
+            <!-- Logo -->                   
+            <a href="/" class="header__logo">
+                <img src="images/logo.jpg" alt="dev" width="50">
+            </a>
+            <!-- Menu -->
+            <a id="btnHumburger" href="#" class="header__toggle hide-for-desktop">
+                <span></span>
+                <span></span>
+                <span></span>
+            </a>
+            <!-- Header links -->
+            <div class="header__links hide-for-mobile">
+                <a href="http://">Home</a>
+                <a href="http://">About</a>
+                <a href="http://">Contact</a>
+                <a href="http://">Blog</a>
+                <a href="http://">Careers</a>
+            </div>
+            <!-- button -->
+            <a href="#" class="button header__cta hide-for-mobile">Request Invite</a>
+        </nav>
+        <div class="header__menu has-fade">
+            <a href="http://">Home</a>
+            <a href="http://">About</a>
+            <a href="http://">Contact</a>
+            <a href="http://">Blog</a>
+            <a href="http://">Careers</a>
+        </div>
+    </header>
+    <script src="/app/js/script.js"></script>
+</body>
+</html>
+```
+### CSS
+> compilation SCSS
+> Компилация SCSS
+
+```
 .has-fade {
   visibility: hidden;
 }
@@ -58,7 +127,7 @@ body {
   line-height: 1.3;
   font-weight: 300;
 }
-body.noscroll {
+body__noscroll {
   overflow: hidden;
 }
 
@@ -207,3 +276,37 @@ button,
 .header__links__cta:hover {
   opacity: 0.75;
 }/*# sourceMappingURL=style.css.map */
+```
+
+### JavaScript
+```
+const btnHumburger = document.querySelector('#btnHumburger');
+const body = document.querySelector('body');
+const header = document.querySelector('.header');
+const overlay = document.querySelector('.overlay');
+const fadeElements = document.querySelectorAll('.has-fade')
+
+btnHumburger.addEventListener('click', function() {
+    console.log("Open Humburger")
+
+    // содержит ли кнопка класс "open". Если содержит, то удаляет этот класс.
+    if(header.classList.contains('open')) {
+        body.classList.remove('noscroll')
+        header.classList.remove('open');
+        fadeElements.forEach(function(element){
+            element.classList.remove('fade-in');
+            element.classList.add('fade-out');
+        })
+
+    }
+    else {
+        body.classList.add('noscroll')
+        header.classList.add('open');
+        fadeElements.forEach(function(element){
+            element.classList.remove('fade-out');
+            element.classList.add('fade-in');
+        })
+
+    }
+})
+```

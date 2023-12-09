@@ -20,6 +20,9 @@ body {
   color: $grayishBlue; // Установка цвета текста (переменная)
   line-height: 1.3; // Установка межстрочного интервала
   font-weight: 300; // Установка насыщенности шрифта
+  &.noscroll{
+    overflow: hidden;
+  }
 }
 
 a,
@@ -28,6 +31,11 @@ a:hover {
   // Удаление подчеркивания у всех ссылок
   text-decoration: none;
 }
+// spacing
+.container {
+  padding: 1rem 2rem;
+}
+
 
 .flex {
   // Основные стили для элементов с дисплеем flex
