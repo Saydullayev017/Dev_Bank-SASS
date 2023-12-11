@@ -2,7 +2,7 @@
 * [HTML code](#html-code)
 * [CSS code](#css)
 * [JavaScript code](#javascript)
-> Animated Humburger Menu
+> Animated Mobile Menu
 > Анимировать ганбургер меню
 
 ![Part 3](/README/Part_3/Part_3.gif)

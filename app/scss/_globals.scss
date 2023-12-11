@@ -16,7 +16,7 @@ body {
   margin: 0; // Удаление внешних отступов
   padding: 0; // Удаление внутренних отступов
   font-family: "Public Sans", sans-serif; // Установка шрифта
-  font-size: $font-med; // Установка размера шрифта (переменная)
+  font-size: $font-sm; // Установка размера шрифта (переменная)
   color: $grayishBlue; // Установка цвета текста (переменная)
   line-height: 1.3; // Установка межстрочного интервала
   font-weight: 300; // Установка насыщенности шрифта
@@ -36,7 +36,10 @@ a:hover {
   padding: 1rem 2rem;
 }
 
-
+// headinng
+h1, h2, h3 {
+  margin-top: 0px;
+}
 .flex {
   // Основные стили для элементов с дисплеем flex
   display: flex;
