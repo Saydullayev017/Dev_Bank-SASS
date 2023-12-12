@@ -1,4 +1,4 @@
-### Part 2
+### Part 3
 * [HTML code](#html-code)
 * [CSS code](#css)
 * [JavaScript code](#javascript)
