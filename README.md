@@ -7,3 +7,4 @@ Site using HTML SCSS JavaScript technology
 [Part - 4 Responsive Hero](/README/Part_4/README.md)<br>
 [Part - 5 Column Features](/README/Part_5/README.md)<br>
 [Part - 6 Column Articles](/README/Part_6/README.md)<br>
+[Part - 7 Footer](/README/Part_7/README.md)<br>

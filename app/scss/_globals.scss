@@ -1,5 +1,4 @@
 html {
-  // Установка базового размера шрифта и модели бокса для всего документа
   font-size: 100%;
   box-sizing: border-box;
 }
@@ -7,102 +6,42 @@ html {
 *,
 *::before,
 *::after {
-  // Наследование модели бокса у всех элементов
   box-sizing: inherit;
 }
 
 body {
-  // Стили для тела документа
-  margin: 0; // Удаление внешних отступов
-  padding: 0; // Удаление внутренних отступов
-  font-family: "Public Sans", sans-serif; // Установка шрифта
-  font-size: $font-sm; // Установка размера шрифта (переменная)
-  color: $grayishBlue; // Установка цвета текста (переменная)
-  line-height: 1.3; // Установка межстрочного интервала
-  font-weight: 300; // Установка насыщенности шрифта
-  min-height: 350vh;
+  margin: 0;
+  padding: 0;
+  font-family: 'Public Sans', sans-serif;
+  font-size: $font-sm;
+  font-weight: 300;
+  color: $grayishBlue;
+  line-height: 1.3;
+  overflow-x: hidden;
 
   @include breakpoint-up(large) {
     font-size: $font-med;
   }
-  &.noscroll{
+
+  &.noscroll {
     overflow: hidden;
   }
 }
 
-a,
-a:visited,
-a:hover {
-  // Удаление подчеркивания у всех ссылок
-  text-decoration: none;
-}
-// spacing
-.container {
-  max-width: 69.375rem;
-  margin: 0 auto;
-  // padding: 1rem 2rem;
-  &--pall {
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
-    padding-right: 1.5rem; 
-    padding-left: 1.5rem;
-
-    @include breakpoint-up(large) {
-      padding-top: 3rem;
-      padding-bottom: 3rem;
-    }
-  }
-  &--px {
-    padding-right: 1.5rem; 
-    padding-left: 1.5rem;
-
-  }
-  &--py {
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
-    @include breakpoint-up(large) {
-      padding-top: 3rem;
-      padding-bottom: 3rem;
-      
-    }
-  }
-
-  &--pt {
-    padding-top: 1.5rem;
-    @include breakpoint-up(large) {
-      padding-top: 3rem;
-    }
-  }
-
-  &--pr {
-    padding-right: 1.5rem; 
-
-  }
-
-  &--pb {
-    padding-bottom: 1.5rem;
-
-    @include breakpoint-up(large) {
-      padding-bottom: 6rem;
-    }
-
-  }
-
-  &--pl {
-    padding-left: 1.5rem;
-
-  }
-}
-
-// headinng
-h1, h2, h3 {
+// Text
+h1,
+h2,
+h3 {
+  font-weight: 300;
+  line-height: 1.15;
+  color: $darkBlue;
   margin-top: 0px;
 }
 
 h1 {
-  margin-bottom: 1.5rem;
   font-size: 2.31rem;
-  
+  margin-bottom: 1.5rem;
+
   @include breakpoint-up(large) {
     font-size: $font-xlg;
   }
@@ -111,65 +50,133 @@ h1 {
 h2 {
   font-size: 1.875rem;
   margin-bottom: 1.5625rem;
-  
+
   @include breakpoint-up(large) {
     font-size: 2.25rem;
     margin-bottom: 2.25rem;
-
   }
 }
 
+p {
+  line-height: 1.5;
+  margin-bottom: 2.25rem;
+}
+
+a,
+a:visited,
+a:hover {
+  text-decoration: none;
+}
+
+// Spacing
+.container {
+  max-width: 69.375rem;
+  margin: 0 auto;
+
+  &--pall {
+    padding-top: 4.375rem;
+    padding-right: 1.5rem;
+    padding-bottom: 4.375rem;
+    padding-left: 1.5rem;
+
+    @include breakpoint-up(large) {
+      padding-top: 6rem;
+      padding-bottom: 6rem;
+    }
+  }
+  &--py {
+    padding-top: 4.375rem;
+    padding-bottom: 4.375rem;
+
+    @include breakpoint-up(large) {
+      padding-top: 6rem;
+      padding-bottom: 6rem;
+    }
+  }
+  &--px {
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+  }
+  &--pt {
+    padding-top: 4.375rem;
+
+    @include breakpoint-up(large) {
+      padding-top: 6rem;
+    }
+  }
+  &--pr {
+    padding-right: 1.5rem;
+  }
+  &--pb {
+    padding-bottom: 4.375rem;
+
+    @include breakpoint-up(large) {
+      padding-bottom: 6rem;
+    }
+  }
+  &--pl {
+    padding-left: 1.5rem;
+  }
+}
+
+// Flexbox
 .flex {
-  // Основные стили для элементов с дисплеем flex
   display: flex;
 
-  &-js-sb {
-    // Расстановка элементов с пространством между ними
+  &-jc-sb {
     justify-content: space-between;
   }
 
-  &-js-c {
-    // Расстановка элементов по центру
+  &-jc-c {
     justify-content: center;
   }
 
   &-ai-c {
-    // Выравнивание элементов по центру по вертикали
     align-items: center;
   }
 }
 
+// Buttons
 button,
 .button {
+  position: relative;
   display: inline-block;
-  // Стили для кнопок
-  padding: 0.675rem 2.1875rem; // Установка отступов
-  background: linear-gradient(
-    to right,
-    $gray,
-    $brightCyan
-  ); // Установка градиента фона (переменные)
-  border: 0; // Удаление границы
-  border-radius: 50px; // Создание скругленных углов
-  cursor: pointer; // Изменение указателя при наведении
-  color: $white; // Установка цвета текста (переменная)
-  font-weight: 400; // Установка насыщенности шрифта
-  font-size: $font-sm; // Установка размера шрифта для "вызова к действию" (переменная)
-  transition: opacity 300ms ease-in-out; // Установка анимации перехода непрозрачности
-  &:hover {
-    opacity: 0.75; // Изменение непрозрачности при наведении
+  padding: 0.875rem 2.1875rem;
+  background-image: linear-gradient(to right, $limeGreen, $brightCyan);
+  border: 0;
+  border-radius: 50px;
+  cursor: pointer;
+  color: $white;
+  font-weight: 400;
+  font-size: $font-sm;
+  transition: opacity 300ms ease-in-out;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.25);
+    opacity: 0;
+    transition: opacity 150ms ease-in-out;
+  }
+
+  &:hover::before {
+    opacity: 1;
   }
 }
 
+// Visibility
 .hide-for-mobile {
-  // Скрытие элемента для мобильных устройств
   @include breakpoint-down(medium) {
     display: none;
   }
 }
 
 .hide-for-desktop {
-  // Скрытие элемента для настольных устройств
   @include breakpoint-up(large) {
     display: none;
   }
