@@ -1,6 +1,6 @@
 ## Dev_Project
 
-> Cайт : https://dev-project-bank.netlify.app/
+> Cайт : https://dev-bank-sass.vercel.app
 
 - Это сайт Landing Page 
 - Использавал техналогии HTML, SCSS, JavaScript
